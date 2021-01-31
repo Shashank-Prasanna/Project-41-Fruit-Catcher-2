@@ -33,9 +33,7 @@ class Game {
 		console.warn(players[0]);
 	}
 
-	play() {
-		console.log(player.index);
-		console.log(players[player.index]);
+	async play() {
 		form.hide();
 
 		Player.getPlayerInfo();
@@ -44,6 +42,19 @@ class Game {
 		var y = 200;
 		var index = 0;
 		drawSprites();
+
+		p1score = allPlayers.player1.score;
+		p2score = allPlayers.player2.score;
+
+		fill('white');
+		textSize(30);
+
+		text('Player 1: ' + p1score, 10, 40);
+		text('Player 2: ' + p2score, 10, 80);
+
+		console.log(p1score);
+		console.log(p2score);
+
 		for (var plr in allPlayers) {
 			index = index + 1;
 			x = 500 - allPlayers[plr].distance;
